@@ -1,4 +1,4 @@
-import { Divider, Flex } from '@chakra-ui/react'
+import { Divider, Flex, Image } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider'
 

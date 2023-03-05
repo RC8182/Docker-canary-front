@@ -2,13 +2,15 @@ import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider';
 import { RosaViento } from '../Icons/RosaViento';
+import { Compass } from '../Modulos Tiempo/compass';
+import { Tiempo } from '../Modulos Tiempo/tiempo';
 import { Viento } from '../Modulos Tiempo/viento';
 
 export const WinWhiteCard = (props) => {
   const {obVientoActual}= useContext(WindContext);
 
     const localidad= props.localidad;
-
+    const tiempo= 'Soleado'
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 'hour':'numeric', 'minute': 'numeric' };
     const fecha_hora= new Date().toLocaleString('es-ES', options);
 
@@ -28,18 +30,20 @@ export const WinWhiteCard = (props) => {
         display={'flex'}
         flexDirection={'column'}
         flexWrap={'wrap'}>
-      <Flex flexDirection={'column'}>
-        <Flex >
-          <h2>{localidad} </h2>
-        </Flex>
-        <Flex fontSize={'.5em'} >
-        <h3>{fecha_hora}</h3>
-        </Flex>
-        <Flex>
-        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
-        </Flex>
-      </Flex>
+        <Flex flexDirection={'row'} >
+          <Flex flexDirection={'column'} margin={'2px'}>
+            <Flex >
+              <h2>{localidad} </h2>
+            </Flex>
+            <Flex fontSize={'.5em'} >
+              <h3>{fecha_hora}</h3>
+            </Flex>        
+          </Flex>
+          <Divider className={'divider'} orientation='vertical' borderColor={'rgb(255, 154, 0)'} />
+          <Tiempo tiempo={tiempo} />
+        </Flex>  
 
+        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
 
         <Flex 
           justifyContent={'center'}
@@ -63,7 +67,7 @@ export const WinWhiteCard = (props) => {
                     </Flex>
                     <Flex justifyContent={'center'}>
                         <Flex>
-                            <h2>Direccion del viento: {direccion}   </h2>
+                          <Compass compass={direccion}/>
                         </Flex>
                     </Flex>
               </Flex>            

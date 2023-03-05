@@ -13,8 +13,8 @@ export const TideWhiteCard = () => {
   // Buscamos el tipo de marea sabiendo que 
   const hpleamar1= (marea1?.tipo === 'pleamar')? marea1?.hora: marea2?.hora;
   const hpleamar2= (marea3?.tipo === 'pleamar')? marea3?.hora: marea4?.hora;
-  const hbajamar2= (marea1?.tipo === 'bajamar')? marea1?.hora : marea2?.hora;
-  const hbajamar1= (marea3?.tipo === 'bajamar')? marea3?.hora : marea4?.hora;
+  const hbajamar1= (marea1?.tipo === 'bajamar')? marea1?.hora : marea2?.hora;
+  const hbajamar2= (marea3?.tipo === 'bajamar')? marea3?.hora : marea4?.hora;
   
   // Pasamos la hora de str a num y la comparamos con la hora actual para sacar el estado actual.
   const horaActual= new Date().getTime();

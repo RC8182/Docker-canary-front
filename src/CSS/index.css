@@ -29,13 +29,15 @@
 .icono-rosa-viento{
     /* Cambiamos el color del ícono https://codepen.io/sosuke/pen/Pjoqqp */
     /* filter: invert(8%) sepia(72%) saturate(6586%) hue-rotate(238deg) brightness(94%) contrast(118%);  */
-    filter: invert(57%) sepia(96%) saturate(1284%) hue-rotate(359deg) brightness(101%) contrast(106%);
+    filter: invert(40%) sepia(84%) saturate(2465%) hue-rotate(171deg) brightness(94%) contrast(102%);
 }
 .icono-flecha-rosa-viento{
-   /* filter: brightness(0) saturate(100%)  Pasamos a negro */
-    filter: invert(100%) sepia(44%) saturate(2%) hue-rotate(349deg) brightness(111%) contrast(100%);
+   /*filter: brightness(0) saturate(100%);  Pasamos a negro*/
+   filter: invert(57%) sepia(96%) saturate(1284%) hue-rotate(359deg) brightness(101%) contrast(106%);
 }
-
+.icono-compass{
+    filter: invert(57%) sepia(96%) saturate(1284%) hue-rotate(359deg) brightness(101%) contrast(106%);
+}
 
 .contenedor-elementos-header{
     display: flex;
