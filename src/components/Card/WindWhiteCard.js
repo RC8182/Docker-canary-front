@@ -2,6 +2,7 @@ import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider';
 import { RosaViento } from '../Icons/RosaViento';
+import { Viento } from '../Modulos Tiempo/viento';
 
 export const WinWhiteCard = (props) => {
   const {obVientoActual}= useContext(WindContext);
@@ -41,22 +42,19 @@ export const WinWhiteCard = (props) => {
 
 
         <Flex 
-        justifyContent={'center'}
-        margin={'10px'}>
+          justifyContent={'center'}
+          margin={'10px'}
+          flexDirection={'column'}>
 
-                <Flex                 
+              <Flex                 
                 display={'flex'}
                 flexDirection={'column'}
                 flexWrap={'wrap'}
                 margin={'2px'}>
-                    <Flex justifyContent={'center'}>
+
+                    <Flex justifyContent={'start'}>
                         <Flex>
-                            <h2>Viento: <span>{obVientoActual?.viento} Knots </span> </h2>
-                        </Flex>
-                    </Flex>
-                    <Flex justifyContent={'center'}>
-                        <Flex>
-                            <br/>
+                        <Viento viento={obVientoActual?.viento} />
                         </Flex>
                     </Flex>
 
@@ -68,7 +66,7 @@ export const WinWhiteCard = (props) => {
                             <h2>Direccion del viento: {direccion}   </h2>
                         </Flex>
                     </Flex>
-                </Flex>            
+              </Flex>            
         </Flex>
 
     </Flex>

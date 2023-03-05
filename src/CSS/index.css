@@ -40,7 +40,7 @@
 .contenedor-elementos-header{
     display: flex;
     text-align: center;
-    text-justify: distribute-all-lines;
+
     width: 100vw;
     height: 60px;
     padding: 15px;

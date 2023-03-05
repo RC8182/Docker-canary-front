@@ -2,6 +2,8 @@ import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { TideContext } from '../../Context/TideProvider'
 import { TideChart } from '../Charts/TideChart'
+import { Bajamar } from '../Modulos Tiempo/bajamar'
+import { Pleamar } from '../Modulos Tiempo/pleamar'
 
 export const TideWhiteCard = () => {
 
@@ -85,13 +87,10 @@ export const TideWhiteCard = () => {
         <h2>Estado:{ <span>{estado}</span>}</h2>
       </Flex>
 
-      <Flex fontSize={'.8em'}>
+      <Flex fontSize={'.8em'} justifyContent={'center'}>
         <Flex flexDir={'column'} margin={'4px'} padding={'2px'} >
           <Flex>
-            <h2>Pleamar 1: <span> {hpleamar1} hs</span></h2>
-          </Flex>
-          <Flex>
-            <h2>Bajamar 1: <span> {hbajamar1} hs</span></h2>
+            <Bajamar bajamar1={hbajamar1} bajamar2={hbajamar2}/>
           </Flex>
         </Flex>
 
@@ -99,11 +98,9 @@ export const TideWhiteCard = () => {
 
         <Flex flexDir={'column'} margin={'4px'} padding={'2px'}>
           <Flex>
-            <h2>Pleamar 2: <span> {hpleamar2} hs</span></h2>
+            <Pleamar pleamar1={hpleamar1} pleamar2={hpleamar2} />
           </Flex>
-          <Flex>
-            <h2>Bajamar 2: <span> {hbajamar2} hs</span></h2>
-          </Flex>
+
         </Flex>
       </Flex>
 
