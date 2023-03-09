@@ -5,7 +5,7 @@ export const TideContext= createContext();
 export const TideProvider = ({children}) => {
 
   const fetch_mareas= async ()=>{
-      const url='http://apicanarywind.ddns.net/mareas'
+      const url='https://canary-wind.ddns.net/api/mareas'
       const respueta= await fetch(url)
       const res= await respueta.json()
       console.log('terminamos de pedir a la api de mareas')

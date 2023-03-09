@@ -2,20 +2,13 @@ import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { TideContext } from '../../Context/TideProvider'
 import { TideChart } from '../Charts/TideChart'
-import { Bajamar } from '../Modulos Tiempo/bajamar'
-import { Pleamar } from '../Modulos Tiempo/pleamar'
+import { Bajamar } from '../Modulos Tiempo/Bajamar'
+import { Pleamar } from '../Modulos Tiempo/Pleamar'
 
 export const TideWhiteCard = () => {
 
   const {marea1, marea2, marea3, marea4, listaDatosMareas}= useContext(TideContext);
-   
-
-  // Buscamos el tipo de marea sabiendo que 
-  const hpleamar1= (marea1?.tipo === 'pleamar')? marea1?.hora: marea2?.hora;
-  const hpleamar2= (marea3?.tipo === 'pleamar')? marea3?.hora: marea4?.hora;
-  const hbajamar1= (marea1?.tipo === 'bajamar')? marea1?.hora : marea2?.hora;
-  const hbajamar2= (marea3?.tipo === 'bajamar')? marea3?.hora : marea4?.hora;
-  
+    
   // Pasamos la hora de str a num y la comparamos con la hora actual para sacar el estado actual.
   const horaActual= new Date().getTime();
   const marea1Time= new Date(marea1?.fecha +' '+ marea1?.hora).getTime(); 
@@ -23,41 +16,34 @@ export const TideWhiteCard = () => {
   const marea3Time= new Date(marea3?.fecha +' '+ marea3?.hora).getTime(); 
   const marea4Time= new Date(marea4?.fecha +' '+ marea4?.hora).getTime(); 
 
-  var estado= ''
-
-    if (horaActual <= marea1Time){
-      if(marea1?.tipo === 'pleamar'){
-        estado= ' Subiendo';
-      }
-      else{
-        estado= ' Bajando';
-      } 
+  // Buscamos el tipo de marea sabiendo que tenemos solo 2 tipos de mareas
+  const hpleamar1= (marea1?.tipo === 'pleamar')? marea1?.hora: marea2?.hora;
+  const hpleamar2= (marea3?.tipo === 'pleamar')? marea3?.hora: marea4?.hora;
+  const hbajamar1= (marea1?.tipo === 'bajamar')? marea1?.hora : marea2?.hora;
+  const hbajamar2= (marea3?.tipo === 'bajamar')? marea3?.hora : marea4?.hora;
+      
+  // Buscamos el estado de la marea, si la marea actual es pleamar y la proxima marea es bajamar el estado será 'Bajando' 
+    var estado= ''
+    var mareaActual=Object;  
+    
+    if (horaActual < marea1Time){
+      mareaActual= marea1;
     }
-    else if(horaActual > marea1Time && horaActual < marea2Time ){
-      if(marea1?.tipo === 'pleamar'){
-        estado= ' Subiendo';
-      }
-      else{
-        estado= ' Bajando';
-      }  
+    else if(horaActual > marea1Time && horaActual < marea2Time){
+      mareaActual= marea2;
     }
     else if(horaActual > marea2Time && horaActual < marea3Time){
-      if(marea1?.tipo === 'pleamar'){
-        estado= ' Subiendo';
-      }
-      else{
-        estado= ' Bajando';
-      } 
+      mareaActual= marea3
     }
     else if(horaActual > marea3Time && horaActual < marea4Time){
-      if(marea1?.tipo === 'pleamar'){
-        estado= ' Subiendo';
-      }
-      else{
-        estado= ' Bajando';
-      } 
+      mareaActual= marea4
     }
-
+    if(mareaActual?.tipo === 'pleamar'){
+      estado= 'Subiendo'
+    }
+    else{
+      estado= 'Bajando'
+    }
 
   return (
     <Flex         

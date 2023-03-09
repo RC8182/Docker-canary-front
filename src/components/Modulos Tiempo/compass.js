@@ -5,11 +5,11 @@ export const Compass = (props) => {
     const compass= props.compass;
   
   return (
-    <Flex flexDirection={'column'} fontSize={'1rem'}>
+    <Flex flexDirection={'column'} fontSize={'0.9rem'}>
         <Flex margin={'2px'}>
         <Image 
                 className='icono-compass'    
-                boxSize='36px'
+                boxSize='34px'
                 borderRadius='full'
                 src={require('../Icons/compass-celeste-removebg-preview.png')} 
                 alt='Icono-Compass' 

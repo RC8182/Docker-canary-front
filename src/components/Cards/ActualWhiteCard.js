@@ -1,21 +1,34 @@
 import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider';
-import { RosaViento } from '../Icons/RosaViento';
-import { Compass } from '../Modulos Tiempo/compass';
-import { Tiempo } from '../Modulos Tiempo/tiempo';
-import { Viento } from '../Modulos Tiempo/viento';
+import { Sunrise } from '../Modulos Tiempo/Sunrise';
+import { Sunset } from '../Modulos Tiempo/Sunset';
+import { Tiempo } from '../Modulos Tiempo/Tiempo';
 
-export const WinWhiteCard = (props) => {
-  const {obVientoActual}= useContext(WindContext);
+import { Temperature } from '../Modulos Tiempo/Temperature';
+import { Uv } from '../Modulos Tiempo/Uv';
+import { Viento } from '../Modulos Tiempo/Viento';
+import { RosaViento } from '../Modulos Tiempo/RosaViento';
+import { Compass } from '../Modulos Tiempo/Compass';
+import { Olas } from '../Modulos Tiempo/Olas';
+
+export const ActualWhiteCard = (props) => {
+  const { estadoSol, obVientoActual}= useContext(WindContext);
+
+    const alba= estadoSol?.status[0].alba;
+    const amanecer= estadoSol?.status[0].amanecer;
+    const atardecer= estadoSol?.status[0].atardecer;
+    const crepusculo= estadoSol?.status[0].crepusculo;
+
+    const grados= obVientoActual?.grados;
+    const direccion= obVientoActual?.direccion +' '+ grados + 'º';
 
     const localidad= props.localidad;
     const tiempo= 'Soleado'
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 'hour':'numeric', 'minute': 'numeric' };
     const fecha_hora= new Date().toLocaleString('es-ES', options);
 
-    const grados= obVientoActual?.grados;
-    const direccion= obVientoActual?.direccion +' '+ grados + 'º'
+
   return (
     <Flex 
         className='contenedor-card'
@@ -24,7 +37,7 @@ export const WinWhiteCard = (props) => {
         fontSize={'18px'}
         borderRadius={'10px'}
         width={'300px'}
-        height={'380px'}
+        height={'520px'}
         margin={'2px'}
         padding={'8px'}
         display={'flex'}
@@ -45,6 +58,19 @@ export const WinWhiteCard = (props) => {
 
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
 
+        <Flex flexDirection={'row'}>
+          <Sunrise alba={alba} amanecer={amanecer} /> 
+          <Sunset atardecer={atardecer} crepusculo={crepusculo} />
+        </Flex>
+        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
+        <Flex>
+          <Temperature />
+        </Flex>
+        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
+        <Flex>
+          <Uv />
+        </Flex>
+        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
         <Flex 
           justifyContent={'center'}
           margin={'10px'}
@@ -58,21 +84,25 @@ export const WinWhiteCard = (props) => {
 
                     <Flex justifyContent={'start'}>
                         <Flex>
-                        <Viento viento={obVientoActual?.viento} />
+                        <Viento titulo= {'Viento Actual: '} viento={obVientoActual?.viento} />
                         </Flex>
                     </Flex>
 
-                    <Flex justifyContent={'center'}>
+                    <Flex justifyContent={'center'} position={'relative'}>
                         <RosaViento grados={grados} />
                     </Flex>
-                    <Flex justifyContent={'center'}>
+                    <Flex justifyContent={'start'}>
                         <Flex>
                           <Compass compass={direccion}/>
                         </Flex>
                     </Flex>
               </Flex>            
-        </Flex>
-
+      </Flex>
+        <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
+      <Flex>
+        <Olas />
+      </Flex>
+      <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
     </Flex>
   )
 }

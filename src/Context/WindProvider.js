@@ -7,7 +7,7 @@ export const WindProvider = ({children}) => {
 
 
   const fetch_muchoViento= async()=>{
-    const url= 'http://apicanarywind.ddns.net/'
+    const url= 'https://canary-wind.ddns.net/api'
     const respuesta= await fetch(url)
     const res= respuesta.json()
     return res
@@ -24,6 +24,7 @@ export const WindProvider = ({children}) => {
     const [obViento2, setObViento2 ]= useState()
     const [obViento3, setObViento3 ]= useState()
     const [obVientoActual, setObVientoActual ]= useState()
+    const [estadoSol, setEstadoSol ]= useState()
     
     const get_datos_viento= async()=>{
       const api= await fetch_muchoViento();
@@ -32,6 +33,7 @@ export const WindProvider = ({children}) => {
       setObViento2(api[1][1]) // Lista data día 2
       setObViento3(api[1][2]) // Lista data día 3
       setObVientoActual(api[0]) // Lista data Viento Actual
+      setEstadoSol(api[2]) // Objeto {alba - amanecer - mediodia - atardecer - crepusculo}
     }
 
 
@@ -46,7 +48,7 @@ export const WindProvider = ({children}) => {
     };
   }, []);
 
-  const data={limpiarHora, obViento, obViento1, obViento2, obViento3, obVientoActual}
+  const data={limpiarHora, obViento, obViento1, obViento2, obViento3, obVientoActual, estadoSol}
 
   return (
     <WindContext.Provider value= {data} >

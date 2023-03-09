@@ -42,7 +42,6 @@ export const TideChart = (props) => {
     data: mareas
   },]
 
-  console.log('mareas', mareas)
   const [series, setSeries]= useState([
         {
             name: 'Tide',

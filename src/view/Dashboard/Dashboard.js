@@ -1,11 +1,10 @@
 import { Flex, Image } from "@chakra-ui/react"
 import '../../CSS/index.css'
-import { DateWhiteCard } from "../../components/Card/DateWhiteCard"
-import { TideWhiteCard } from "../../components/Card/TideWhiteCard"
-import { WinWhiteCard } from "../../components/Card/WindWhiteCard"
-import { WaveWhiteCard } from "../../components/Card/WaveWhiteCard"
-// import { SunWhiteCard } from "../../components/Card/SunWhiteCard"
+import { TideWhiteCard } from "../../components/Cards/TideWhiteCard"
+// import { WaveWhiteCard } from "../../components/Cards/WaveWhiteCard"
 import { Header } from "../../components/NavBar/Header"
+import { ForecastWhiteCard } from "../../components/Cards/ForecastWhiteCard"
+import { ActualWhiteCard } from "../../components/Cards/ActualWhiteCard"
 
 
 
@@ -23,7 +22,7 @@ export const Dashboard = () => {
         <Flex>
             <Image
                 boxSize='100%'
-                objectFit='cover'
+                objectFit='full'
                 src={require('../../img/descarga.png')} alt='Playa kite El Médano Tenerife'/>
         </Flex>
 
@@ -33,25 +32,21 @@ export const Dashboard = () => {
       flexDirection={'row'}
       flexWrap={'wrap'}
       width={'100vw'}
-      margin={'5px'}
       padding={'5px'}
       justifyContent={'center'}>
 
         <Flex>
-            <WinWhiteCard localidad={'El Médano'} /> 
+            <ActualWhiteCard localidad={'El Médano'} /> 
+        </Flex>
+        <Flex>
+            <ForecastWhiteCard />
         </Flex>
         <Flex>
             <TideWhiteCard  />
         </Flex>
-        <Flex>
-             <DateWhiteCard />
-        </Flex>
-        <Flex>
-             <WaveWhiteCard />
-        </Flex>
         {/* <Flex>
-             <SunWhiteCard />
-        </Flex>         */}
+             <WaveWhiteCard />
+        </Flex> */}
 
     </Flex>
     </Flex>

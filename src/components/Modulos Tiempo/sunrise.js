@@ -1,9 +1,9 @@
 import { Flex, Image } from '@chakra-ui/react'
 import React from 'react'
 
-export const Sunrise = () => {
-    const alba= '6:00';
-    const amanecer= '6:25';
+export const Sunrise = (props) => {
+    const alba= props.alba;
+    const amanecer= props.amanecer;
 
   
   return (
@@ -20,7 +20,7 @@ export const Sunrise = () => {
         <Flex flexDirection={'column'}>
             <Flex flexDirection={'row'}>
             <Flex margin={'2px'}>
-            Alba
+            Alba:
             </Flex>
             <Flex margin={'2px'}>
             {alba}
@@ -29,7 +29,7 @@ export const Sunrise = () => {
 
             <Flex flexDirection={'row'}>
             <Flex margin={'2px'}>
-            Amanecer
+            Amanecer:
             </Flex>
             <Flex margin={'2px'}>
             {amanecer}

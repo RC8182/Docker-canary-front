@@ -1,6 +1,7 @@
-import { Divider, Flex, Image } from '@chakra-ui/react'
+import { Divider, Flex} from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider'
+import { DayCard } from '../Acordion/Cards/DayCard';
 
 
 export const WaveWhiteCard = () => {
@@ -28,11 +29,9 @@ export const WaveWhiteCard = () => {
         <h2>Wave card </h2>
       </Flex>
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
-      <Flex>
-    </Flex>
 
-        <Flex flexDirection={'column'}>
-
+        <Flex flexDirection={'column'} margin={'5px'}>
+          <DayCard />
         </Flex>
       </Flex>
 
