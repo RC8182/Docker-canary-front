@@ -4,27 +4,32 @@ import { WindContext } from '../../Context/WindProvider';
 import { Sunrise } from '../Modulos Tiempo/Sunrise';
 import { Sunset } from '../Modulos Tiempo/Sunset';
 import { Tiempo } from '../Modulos Tiempo/Tiempo';
-
 import { Temperature } from '../Modulos Tiempo/Temperature';
 import { Uv } from '../Modulos Tiempo/Uv';
 import { Viento } from '../Modulos Tiempo/Viento';
 import { RosaViento } from '../Modulos Tiempo/RosaViento';
 import { Compass } from '../Modulos Tiempo/Compass';
-import { Olas } from '../Modulos Tiempo/Olas';
+
 
 export const ActualWhiteCard = (props) => {
-  const { estadoSol, obVientoActual}= useContext(WindContext);
+  const { estadoSol, obVientoActual, estadotiempo}= useContext(WindContext);
 
     const alba= estadoSol?.status[0].alba;
     const amanecer= estadoSol?.status[0].amanecer;
     const atardecer= estadoSol?.status[0].atardecer;
     const crepusculo= estadoSol?.status[0].crepusculo;
+    var condicion='';
+    if(estadotiempo?.condicion[0] === 'Soleado' || estadotiempo?.condicion[0]=== 'Bueno/Viento'){
+      condicion= 'Despejado'
+    }
+
+    const tempActual= estadotiempo?.tempActual[0];
+    const indiceUv= estadotiempo?.indiceUv[0];
 
     const grados= obVientoActual?.grados;
     const direccion= obVientoActual?.direccion +' '+ grados + 'º';
 
     const localidad= props.localidad;
-    const tiempo= 'Soleado'
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 'hour':'numeric', 'minute': 'numeric' };
     const fecha_hora= new Date().toLocaleString('es-ES', options);
 
@@ -37,7 +42,7 @@ export const ActualWhiteCard = (props) => {
         fontSize={'18px'}
         borderRadius={'10px'}
         width={'300px'}
-        height={'520px'}
+        height={'450px'}
         margin={'2px'}
         padding={'8px'}
         display={'flex'}
@@ -53,7 +58,7 @@ export const ActualWhiteCard = (props) => {
             </Flex>        
           </Flex>
           <Divider className={'divider'} orientation='vertical' borderColor={'rgb(255, 154, 0)'} />
-          <Tiempo tiempo={tiempo} />
+          <Tiempo tiempo={condicion} />
         </Flex>  
 
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
@@ -64,11 +69,11 @@ export const ActualWhiteCard = (props) => {
         </Flex>
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
         <Flex>
-          <Temperature />
+          <Temperature temp_amb={tempActual} temp_agua={'19 º'} />
         </Flex>
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
         <Flex>
-          <Uv />
+          <Uv uv={indiceUv}/>
         </Flex>
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
         <Flex 
@@ -99,10 +104,10 @@ export const ActualWhiteCard = (props) => {
               </Flex>            
       </Flex>
         <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
-      <Flex>
+      {/* <Flex>
         <Olas />
-      </Flex>
-      <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />
+      </Flex> 
+      <Divider className={'divider'} orientation='horizontal' borderColor={'rgb(255, 154, 0)'} />*/}
     </Flex>
   )
 }

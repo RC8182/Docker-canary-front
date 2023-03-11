@@ -3,12 +3,10 @@ import React, { createContext, useEffect, useState } from 'react'
 export const TideContext= createContext();
 
 export const TideProvider = ({children}) => {
-
+  const url= process.env.REACT_APP_MY_API +'/mareas'
   const fetch_mareas= async ()=>{
-      const url='https://canary-wind.ddns.net/api/mareas'
       const respueta= await fetch(url)
       const res= await respueta.json()
-      console.log('terminamos de pedir a la api de mareas')
     return res.mareas.datos.marea
   }
 

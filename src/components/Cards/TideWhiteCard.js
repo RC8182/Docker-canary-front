@@ -2,6 +2,7 @@ import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { TideContext } from '../../Context/TideProvider'
 import { TideChart } from '../Charts/TideChart'
+import { CuentaAtras } from '../CuentaAtras'
 import { Bajamar } from '../Modulos Tiempo/Bajamar'
 import { Pleamar } from '../Modulos Tiempo/Pleamar'
 
@@ -23,28 +24,28 @@ export const TideWhiteCard = () => {
   const hbajamar2= (marea3?.tipo === 'bajamar')? marea3?.hora : marea4?.hora;
       
   // Buscamos el estado de la marea, si la marea actual es pleamar y la proxima marea es bajamar el estado será 'Bajando' 
-    var estado= ''
-    var mareaActual=Object;  
+ 
+    var proxima_marea=Object;  
     
     if (horaActual < marea1Time){
-      mareaActual= marea1;
+      proxima_marea= marea1;
     }
     else if(horaActual > marea1Time && horaActual < marea2Time){
-      mareaActual= marea2;
+      proxima_marea= marea2;
     }
     else if(horaActual > marea2Time && horaActual < marea3Time){
-      mareaActual= marea3
+      proxima_marea= marea3
     }
     else if(horaActual > marea3Time && horaActual < marea4Time){
-      mareaActual= marea4
-    }
-    if(mareaActual?.tipo === 'pleamar'){
-      estado= 'Subiendo'
-    }
-    else{
-      estado= 'Bajando'
+      proxima_marea= marea4
     }
 
+    var estado= (proxima_marea?.tipo === 'bajamar')? 'Bajando': 'Subiendo';
+
+    const horarioProximaMarea= new Date(proxima_marea?.fecha +' '+ proxima_marea?.hora).getTime(); 
+    console.log('proxima marea ',horarioProximaMarea
+    )
+    const tipoProximaMarea= proxima_marea?.tipo;
   return (
     <Flex         
     className='contenedor-card'
@@ -70,7 +71,7 @@ export const TideWhiteCard = () => {
       </Flex>
       
       <Flex justifyContent={'center'}>
-        <h2>Estado:{ <span>{estado}</span>}</h2>
+        <CuentaAtras objetivo={horarioProximaMarea} tipo={tipoProximaMarea}/>
       </Flex>
 
       <Flex fontSize={'.8em'} justifyContent={'center'}>

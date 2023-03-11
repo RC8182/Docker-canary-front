@@ -1,8 +1,8 @@
 import { Flex, Image } from '@chakra-ui/react'
 import React from 'react'
 
-export const Uv = () => {
-    const uv= '6';
+export const Uv = (props) => {
+    const uv= props.uv;
 
   
   return (

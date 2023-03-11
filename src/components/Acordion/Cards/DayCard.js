@@ -32,7 +32,7 @@ export const DayCard = (props) => {
             <Temperature />
           </Flex>
           <Flex>
-            <Olas />
+            {/* <Olas /> */}
           </Flex>
           
         </Flex>

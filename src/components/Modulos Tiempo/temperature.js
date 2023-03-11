@@ -1,9 +1,9 @@
 import { Flex, Image } from '@chakra-ui/react';
 import React from 'react'
 
-export const Temperature = () => {
-    const temp_amb= '21º';
-    const temp_agua= '19º';
+export const Temperature = (props) => {
+    const temp_amb= props.temp_amb;
+    const temp_agua= props.temp_agua;
   return (
     <Flex flexDirection={'column'} fontSize={'0.7rem'}>
         <Flex margin={'2px'}>
