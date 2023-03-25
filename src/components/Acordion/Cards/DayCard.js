@@ -1,9 +1,9 @@
 import { Flex } from '@chakra-ui/react'
-import { Olas } from '../../Modulos Tiempo/Olas'
+// import { Olas } from '../../Modulos Tiempo/Olas'
 import { Sunrise } from '../../Modulos Tiempo/Sunrise'
 import { Sunset } from '../../Modulos Tiempo/Sunset'
 import { Temperature } from '../../Modulos Tiempo/Temperature'
-import { Viento } from '../../Modulos Tiempo/Viento'
+import { VientoAcordion } from '../../Acordion/VientoAcordion'
 
 export const DayCard = (props) => {
     const alba= props.alba;
@@ -11,22 +11,34 @@ export const DayCard = (props) => {
     const atardecer= props.atardecer;
     const crepusculo= props.crepusculo;
 
+    const fecha=props.fecha;
+    const hora= props.hora;
+    const viento= props.viento;
+    const racha= props.racha;
+    const direccion= props.direccion;
+
   return (
     <Flex
-        margin={'5px'}
+        margin={'2px'}
         width={'auto'}
         border={'1px'}
         borderColor={'rgb(255, 154, 0)'}
         borderRadius={'5px'}>
-        <Flex margin={'2px'} padding={'2px'} flexDirection={'column'}>
+        <Flex margin={'2px'} padding={'2px'} flexDirection={'column'} width={'auto'}>
+          <Flex textTransform={'capitalize'}>
+            {fecha}
+          </Flex>
           <Flex flexDirection={'row'}>
-            <Sunrise alba={alba} amanecer={amanecer}/>
+            <Flex>
+              <Sunrise alba={alba} amanecer={amanecer}/>
+            </Flex>
+            <Flex>
+              <Sunset atardecer= {atardecer} crepusculo= {crepusculo} />
+            </Flex>
           </Flex>
-          <Flex>
-            <Sunset atardecer= {atardecer} crepusculo= {crepusculo} />
-          </Flex>
-          <Flex>
-            <Viento titulo={'Viento previsto'} />
+
+          <Flex flexDirection={'column'} width={'100%'}>
+            <VientoAcordion hora={hora} viento={viento} racha={racha} direccion={direccion} />
           </Flex>
           <Flex>
             <Temperature />

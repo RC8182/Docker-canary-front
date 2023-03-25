@@ -27,7 +27,7 @@ export const CuentaAtras = (props) => {
 
       return (
         <div className="CuentaAtras">
-          <div>Faltan {secondsToHours(segundos)} para la {tipoMarea}.</div>
+          <div>Faltan {secondsToHours(segundos)} para {tipoMarea}.</div>
         </div>
       );
     }

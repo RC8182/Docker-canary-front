@@ -1,12 +1,48 @@
 import { Divider, Flex,} from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider'
-import { Acordion } from '../Acordion/Acordion'
+import { DayCard } from '../Acordion/Cards/DayCard'
+import {selecPorHoras} from '../../functions/funciones'
+
 
 
 export const ForecastWhiteCard = () => {
 
-  const { obViento, estadoSol }= useContext(WindContext);
+  const {  estadoSol, dias }= useContext(WindContext);
+  const data= selecPorHoras(8,22,dias)
+
+  console.log('Data ',data);
+
+  const getListaViento= (lista)=>{
+    const listaObj=[]
+      lista.map((e)=>{
+        return listaObj.push(e?.velViento)
+      })
+    return listaObj
+  }
+  const getListaRacha= (lista)=>{
+    const listaObj=[]
+      lista.map((e)=>{
+        return listaObj.push(e?.racha)
+      })
+    return listaObj
+  }
+  const getListaDirViento= (lista)=>{
+    const listaObj=[]
+      lista.map((e)=>{
+        return listaObj.push(e?.dirViento)
+      })
+    return listaObj
+  }
+
+  const getHora= (list)=>{
+    const listaHora=[]
+      list[0].map((e)=>{
+       return listaHora.push(e?.hora)
+    })
+    return listaHora
+  }
+
 
   return (
     <Flex         
@@ -34,14 +70,18 @@ export const ForecastWhiteCard = () => {
         
         <Flex flexDirection={'column'} >
         { 
-          obViento?.map ((e, index)=>{
+          
+          data?.map ((e, index)=>{
+
             const alba= estadoSol?.status[index].alba;
             const amanecer= estadoSol?.status[index].amanecer;
             const atardecer= estadoSol?.status[index].atardecer;
             const crepusculo= estadoSol?.status[index].crepusculo;
-            return <Acordion 
+            const options = { weekday: 'long', month: 'long', day: 'numeric'};
+            const fecha= new Date(data[index][0]?.fecha).toLocaleString('es-ES', options);
+            return <DayCard
               key={index} 
-              fecha= {e.fecha} hora={e.hora} viento={e.viento} racha={e.racha}
+              fecha= {fecha} hora={getHora(data)} viento={getListaViento(data[index])} racha={getListaRacha(data[index])} direccion={getListaDirViento(data[index])}
               alba= {alba} amanecer= {amanecer} atardecer= {atardecer} crepusculo= {crepusculo} />
           })
           }

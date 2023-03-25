@@ -9,22 +9,43 @@ import { Uv } from '../Modulos Tiempo/Uv';
 import { Viento } from '../Modulos Tiempo/Viento';
 import { RosaViento } from '../Modulos Tiempo/RosaViento';
 import { Compass } from '../Modulos Tiempo/Compass';
+import { toInteger } from 'lodash';
 
 
 export const ActualWhiteCard = (props) => {
-  const { estadoSol, obVientoActual, estadotiempo}= useContext(WindContext);
+  const horaActual= new Date().getHours().toString().padStart(2, '0') //padStart 2 digitos, y si tiene 1 solo agregamos un 0
+  const { estadoSol, obVientoActual, dias}= useContext(WindContext);
 
+    const estadotiempo= dias[0][toInteger(horaActual)]?.estadoTiempo;
     const alba= estadoSol?.status[0].alba;
     const amanecer= estadoSol?.status[0].amanecer;
     const atardecer= estadoSol?.status[0].atardecer;
     const crepusculo= estadoSol?.status[0].crepusculo;
     var condicion='';
-    if(estadotiempo?.condicion[0] === 'Soleado' || estadotiempo?.condicion[0]=== 'Bueno/Viento'){
+    if(estadotiempo === 0 ){
       condicion= 'Despejado'
     }
+    else if(estadotiempo=== 1){
+      condicion= 'Nubes Dispersas'
+    } 
+    else if(estadotiempo=== 2){
+      condicion= 'Parcialmente Nublado'
+    } 
+    else if(estadotiempo=== 3){
+      condicion= 'Mayormente Nublado'
+    } 
+    else if(estadotiempo=== 4){
+      condicion= 'Nublado'
+    } 
+    else if(estadotiempo=== 5){
+      condicion= 'Lluvia Dispersa'
+    } 
+    else if(estadotiempo=== 6){
+      condicion= 'Lluvia'
+    } 
 
-    const tempActual= estadotiempo?.tempActual[0];
-    const indiceUv= estadotiempo?.indiceUv[0];
+    const tempActual= dias[0][toInteger(horaActual)]?.temp +'º';
+    const indiceUv= dias[0][toInteger(horaActual)]?.uv;
 
     const grados= obVientoActual?.grados;
     const direccion= obVientoActual?.direccion +' '+ grados + 'º';
@@ -42,7 +63,7 @@ export const ActualWhiteCard = (props) => {
         fontSize={'18px'}
         borderRadius={'10px'}
         width={'300px'}
-        height={'450px'}
+        height={'auto'}
         margin={'2px'}
         padding={'8px'}
         display={'flex'}

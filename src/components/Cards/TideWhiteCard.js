@@ -7,8 +7,12 @@ import { Bajamar } from '../Modulos Tiempo/Bajamar'
 import { Pleamar } from '../Modulos Tiempo/Pleamar'
 
 export const TideWhiteCard = () => {
+  const today= new Date();
+  const tomorrow= new Date();
+  tomorrow.setDate(today.getDate() + 1)
 
-  const {marea1, marea2, marea3, marea4, listaDatosMareas}= useContext(TideContext);
+
+  const {marea1, marea2, marea3, marea4,marea5 ,listaDatosMareas}= useContext(TideContext);
     
   // Pasamos la hora de str a num y la comparamos con la hora actual para sacar el estado actual.
   const horaActual= new Date().getTime();
@@ -39,13 +43,15 @@ export const TideWhiteCard = () => {
     else if(horaActual > marea3Time && horaActual < marea4Time){
       proxima_marea= marea4
     }
-
+    else{
+      proxima_marea= marea5
+    }
+    const tipoProximaMarea= proxima_marea?.tipo;
     var estado= (proxima_marea?.tipo === 'bajamar')? 'Bajando': 'Subiendo';
 
     const horarioProximaMarea= new Date(proxima_marea?.fecha +' '+ proxima_marea?.hora).getTime(); 
-    console.log('proxima marea ',horarioProximaMarea
-    )
-    const tipoProximaMarea= proxima_marea?.tipo;
+
+    
   return (
     <Flex         
     className='contenedor-card'
@@ -54,7 +60,7 @@ export const TideWhiteCard = () => {
     fontSize={'18px'}
     borderRadius={'10px'}
     width={'300px'}
-    height={'380px'}
+    height={'400px'}
     margin={'2px'}
     padding={'8px'}
     display={'flex'}
@@ -94,7 +100,6 @@ export const TideWhiteCard = () => {
       <Flex justifyContent={'center'}>
         {listaDatosMareas? <TideChart min_day={.5} max_day={.5} estado={estado} /> :<div>Cargando...</div> }
       </Flex>
-
 
     </Flex>
   )

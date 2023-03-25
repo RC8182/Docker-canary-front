@@ -10,13 +10,13 @@ export const TideProvider = ({children}) => {
     return res.mareas.datos.marea
   }
 
-  console.log('Estamos en Tide provider')
 
   const [listaDatosMareas, setlistaDatosMareas]= useState()
   const [marea1, setMarea1]= useState()
   const [marea2, setMarea2]= useState()
   const [marea3, setMarea3]= useState()
   const [marea4, setMarea4]= useState()
+  const [marea5, setMarea5]= useState()
 
   const getDatosMareas= async()=>{
 
@@ -34,7 +34,9 @@ export const TideProvider = ({children}) => {
     setMarea2(proximas_mareas[1]);
     setMarea3(proximas_mareas[2]);
     setMarea4(proximas_mareas[3]);
+    setMarea5(proximas_mareas[4]);
   }
+
   useEffect(() => {
     getDatosMareas()
     const apiCall=setInterval(() => {
@@ -48,7 +50,7 @@ export const TideProvider = ({children}) => {
   }, []);
 
 
-    const data={getDatosMareas, marea1, marea2, marea3, marea4, listaDatosMareas}
+    const data={getDatosMareas, marea1, marea2, marea3, marea4,marea5, listaDatosMareas}
   return (
     <TideContext.Provider value={data}>
     {children}

@@ -1,7 +1,6 @@
 import { Flex, Image } from "@chakra-ui/react"
 import '../../CSS/index.css'
 import { TideWhiteCard } from "../../components/Cards/TideWhiteCard"
-// import { WaveWhiteCard } from "../../components/Cards/WaveWhiteCard"
 import { Header } from "../../components/NavBar/Header"
 import { ForecastWhiteCard } from "../../components/Cards/ForecastWhiteCard"
 import { ActualWhiteCard } from "../../components/Cards/ActualWhiteCard"
@@ -44,9 +43,6 @@ export const Dashboard = () => {
         <Flex>
             <TideWhiteCard  />
         </Flex>
-        {/* <Flex>
-             <WaveWhiteCard />
-        </Flex> */}
 
     </Flex>
     </Flex>

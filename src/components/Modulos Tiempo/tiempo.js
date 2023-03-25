@@ -16,21 +16,21 @@ export const Tiempo = (props) => {
             }
             
             break;
-        case 'Parcialmente Nublado':
+        case 'Nubes Dispersas' ||'Parcialmente Nublado':
             if(hora > 7 && hora < 20){
                 icon= require('../Icons/dia/if-weather-parcialmente nublado-removebg-preview.png');
             } else{
                 icon= require('../Icons/noche/iconfinder-weather-weather-forecast-moon-night-cloud-3859140_121216-removebg-preview.png');
             }
             break;
-        case 'Nublado':
+        case 'Mayormente Nublado' || 'Nublado':
             if(hora > 7 && hora < 20){
                 icon= require('../Icons/dia/if-weather-nublado-removebg-preview.png');
             } else{
                 icon= require('../Icons/noche/iconfinder-weather-weather-forecast-moon-night-cloud-3859140_121216-removebg-preview.png');
             }
             break;
-        case 'Lluvia':
+        case 'Lluvia Dispersa' || 'Lluvia':
             if(hora > 7 && hora < 20){
                 icon= require('../Icons/dia/if-weather-sol y lluvia-removebg-preview.png');
             } else{
