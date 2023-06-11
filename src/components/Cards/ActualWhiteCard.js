@@ -15,6 +15,7 @@ import { toInteger } from 'lodash';
 export const ActualWhiteCard = (props) => {
   const horaActual= new Date().getHours().toString().padStart(2, '0') //padStart 2 digitos, y si tiene 1 solo agregamos un 0
   const { estadoSol, obVientoActual, dias}= useContext(WindContext);
+  console.log('Estamos en dias ',dias)
 
     const estadotiempo= dias[0][toInteger(horaActual)]?.estadoTiempo;
     const alba= estadoSol?.status[0].alba;

@@ -7,9 +7,8 @@ export const TideProvider = ({children}) => {
   const fetch_mareas= async ()=>{
       const respueta= await fetch(url)
       const res= await respueta.json()
-    return res.mareas.datos.marea
+    return res[1].mareas.datos.marea
   }
-
 
   const [listaDatosMareas, setlistaDatosMareas]= useState()
   const [marea1, setMarea1]= useState()

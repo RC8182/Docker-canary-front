@@ -34,14 +34,14 @@ export const WindProvider = ({children}) => {
       setEstadoTiempo(api[3]) // Objeto {temp-actual, condicion (soleado etc), indiceUv}
       const obFullData=
       {
-      'fecha':api[1].hourly.time,
+      'fecha':api[1][1].hourly.time,
       'hora':hora(),
-      'velViento':api[1].hourly.windspeed_10m,
-      'racha': api[1].hourly.windgusts_10m,
-      'dirViento': api[1].hourly.winddirection_10m,
-      'temp':api[1].hourly.temperature_2m,
-      'uv': api[1].hourly.uv_index,
-      'estadoTiempo': api[1].hourly.weathercode
+      'velViento':api[1][1].hourly.windspeed_10m,
+      'racha': api[1][1].hourly.windgusts_10m,
+      'dirViento': api[1][1].hourly.winddirection_10m,
+      'temp':api[1][1].hourly.temperature_2m,
+      'uv': api[1][1].hourly.uv_index,
+      'estadoTiempo': api[1][1].hourly.weathercode
       }
       const diasFullData=[separarXdia(0,24,obFullData), separarXdia(24,48,obFullData), separarXdia(48,72,obFullData)]
       setDias(diasFullData);

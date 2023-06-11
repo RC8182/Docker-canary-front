@@ -9,7 +9,7 @@ import {selecPorHoras} from '../../functions/funciones'
 export const ForecastWhiteCard = () => {
 
   const {  estadoSol, dias }= useContext(WindContext);
-  const data= selecPorHoras(8,22,dias)
+  const data= selecPorHoras(10,21,dias)
 
   console.log('Data ',data);
 
