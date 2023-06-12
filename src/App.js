@@ -15,7 +15,6 @@ function App() {
     <ChakraProvider theme={customTheme}>
       <WindProvider>
         <TideProvider>
-          <ApiUpdate />
           <Flex >
               <Dashboard/>
           </Flex>

@@ -1,14 +1,17 @@
-import { AspectRatio, Box, Flex } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import React from 'react'
 
 export const Video = () => {
   return (
-    <Box
+    
+    <Flex
     as='iframe'
     controls
     src='https://www.youtube.com/embed/_ntI_trEf5E'
     isLooping
-    width='100%'
+    width='99%'
+    margin={'auto'}
+    padding={'20px'}
     sx={{
       aspectRatio: '16/9'
     }}

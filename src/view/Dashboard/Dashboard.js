@@ -1,4 +1,4 @@
-import { Flex, Image } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import '../../CSS/index.css'
 import { TideWhiteCard } from "../../components/Cards/TideWhiteCard"
 import { Header } from "../../components/NavBar/Header"
@@ -8,23 +8,36 @@ import { Video } from "../../components/Video/Video"
 
 
 
+
 export const Dashboard = () => {
 
   return (
     <Flex 
     position={'relative'}
     display={'flex'}
-    flexDirection={'column'}>
+    flexDirection={'column'}
+    marginTop={'70px'}
+    marginLeft={'0px'}
+    marginRight={'0px'}>
 
         <div className='fixed'>
             <Header />
         </div>
-        <Flex margin={'50px'} width={'auto'}>
+        <Flex margin={'auto'} 
+            minWidth={'500px'}
+            maxWidth={'1500px'}
+            width={'42%'} 
+            className="contenedor-video"
+            padding={'5px'}
+            backgroundColor={'#FFF'}
+            borderRadius={'10px'}>
             {/* <Image
                 boxSize='100%'
                 objectFit='full'
                 src={require('../../img/descarga.png')} alt='Playa kite El Médano Tenerife'/> */}
-            <Video />    
+
+                    <Video />
+                
         </Flex>
 
 

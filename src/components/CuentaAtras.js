@@ -27,7 +27,8 @@ export const CuentaAtras = (props) => {
 
       return (
         <div className="CuentaAtras">
-          <div>Faltan {secondsToHours(segundos)} para {tipoMarea}.</div>
+        {( isNaN(segundos))? 'Cambio de marea' : <div>Faltan {secondsToHours(segundos)} para {tipoMarea}.</div>}
+          
         </div>
       );
     }
