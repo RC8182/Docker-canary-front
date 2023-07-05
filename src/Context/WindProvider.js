@@ -7,7 +7,7 @@ export const WindContext= createContext()
 export const WindProvider = ({children}) => {
 
     const url= process.env.REACT_APP_MY_API
-    const fetch_muchoViento= async()=>{
+    const fetch_api= async()=>{
       const respuesta= await fetch(url)
       const res= respuesta.json()
       return res
@@ -28,7 +28,7 @@ export const WindProvider = ({children}) => {
         return h
       }
 
-      const api= await fetch_muchoViento();
+      const api= await fetch_api();
       setObVientoActual(api[0]) // Lista data Viento Actual
       setEstadoSol(api[2]) // Objeto {alba - amanecer - mediodia - atardecer - crepusculo}
       setEstadoTiempo(api[3]) // Objeto {temp-actual, condicion (soleado etc), indiceUv}
@@ -46,7 +46,6 @@ export const WindProvider = ({children}) => {
       const diasFullData=[separarXdia(0,24,obFullData), separarXdia(24,48,obFullData), separarXdia(48,72,obFullData)]
       setDias(diasFullData);
     }
-
 
     
     useEffect(() => {

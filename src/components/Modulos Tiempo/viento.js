@@ -3,7 +3,8 @@ import React from 'react'
 
 export const Viento = (props) => {
     const viento= props.viento;
-    const titulo= props.titulo
+    const titulo= props.titulo;
+    const update= props.update;
   
   return (
     <Flex flexDirection={'column'} fontSize={'0.9rem'}>
@@ -23,10 +24,12 @@ export const Viento = (props) => {
                     </Flex>
                     <Flex margin={'2px'}>
                     {viento}
+                    </Flex>
                 </Flex>
+                <Flex fontSize={'.5em'} >
+                        <h3>{update}</h3>
+                    </Flex> 
             </Flex>
-
-        </Flex>
 
     </Flex>
 

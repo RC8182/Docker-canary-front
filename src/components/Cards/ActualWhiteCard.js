@@ -44,7 +44,7 @@ export const ActualWhiteCard = (props) => {
     else if(estadotiempo=== 6){
       condicion= 'Lluvia'
     } 
-
+    const lastWindUpdate= obVientoActual?.update[0];
     const tempActual= dias[0][toInteger(horaActual)]?.temp +'º';
     const indiceUv= dias[0][toInteger(horaActual)]?.uv;
 
@@ -111,7 +111,7 @@ export const ActualWhiteCard = (props) => {
 
                     <Flex justifyContent={'start'}>
                         <Flex>
-                        <Viento titulo= {'Viento Actual: '} viento={obVientoActual?.viento} />
+                        <Viento titulo= {'Viento Actual: '} viento={obVientoActual?.viento} update={lastWindUpdate} />
                         </Flex>
                     </Flex>
 

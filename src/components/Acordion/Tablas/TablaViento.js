@@ -16,6 +16,7 @@ export const TablaViento = (props) => {
         className='contenedor-viento-table'
         width={'210px'}
         margin={'2px'}
+        paddingBottom={'5px'}
         border={'1px'}
         borderRadius={'5px'}
         borderColor={'rgb(255, 154, 0)'}
@@ -25,21 +26,22 @@ export const TablaViento = (props) => {
         className='viento-table'
         width={'200px'}
         height={'35px'}
-        margin={'2px'}
-        backgroundColor={'gray'}
+        margin={'auto'}
+        marginTop={'5px'}
+        backgroundColor={ 'rgb(228, 224, 222)'}
         // borderRadius={'5px'}
         fontSize={'0.8rem'}>
 
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'auto'} color={'black'}>
                 Hora
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'auto'} color={'black'}>
                 Viento
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'auto'} color={'black'}>
                 Racha
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'auto'} color={'black'}>
                 Dirección
             </Flex>
 

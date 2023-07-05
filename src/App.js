@@ -7,7 +7,7 @@ import { WindProvider } from './Context/WindProvider';
 import { TideProvider } from './Context/TideProvider';
 import { Dashboard } from './view/Dashboard/Dashboard';
 import { customTheme } from './Theme/theme';
-import { ApiUpdate } from './components/ApiUpdate';
+
 
 
 function App() {

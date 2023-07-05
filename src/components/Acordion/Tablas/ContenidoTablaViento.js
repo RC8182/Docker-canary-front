@@ -14,22 +14,23 @@ export const ContenidoTablaViento = (props) => {
     className='viento-table'
     width={'200px'}
     height={'40px'}
-    margin={'2px'}
-    backgroundColor={'gray'}
+    margin={'auto'}
+    marginTop={'2px'}
+    backgroundColor={' rgb(228, 224, 222)'}
     borderRadius={'5px'}
     justifyContent={'space-around'}
     fontSize={'0.8rem'}>
 
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'5px'} color={'black'}>
                 {hora} 
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'5px'} color={'black'}>
                 {viento} Knots
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'5px'} color={'black'}>
                 {racha} Knots
             </Flex>
-            <Flex margin={'5px'} color={'white'}>
+            <Flex margin={'5px'} color={'black'}>
                 {direccion}º
                 <Image
                 className='icono-flecha-rosa-viento'     

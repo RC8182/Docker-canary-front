@@ -20,11 +20,12 @@ export const Dashboard = () => {
     marginLeft={'0px'}
     marginRight={'0px'}>
 
-        <div className='fixed'>
+        <Flex className='fixed'>
             <Header />
-        </div>
-        <Flex margin={'auto'} 
-            minWidth={'500px'}
+        </Flex>
+        <Flex 
+            margin={'auto'} 
+            minWidth={'300px'}
             maxWidth={'1500px'}
             width={'42%'} 
             className="contenedor-video"

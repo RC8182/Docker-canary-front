@@ -48,13 +48,13 @@ export const Header = () => {
                     className='logo' 
                     margin={'2px'}
                     padding={'5px'}
-                    color={'white'}
+                    color={'rgb(255, 154, 0)'}
                     fontSize={'0.8rem'}
                     alignSelf={'center'}
                     border={'1px'}
-                    borderColor={'rgb(255, 154, 0)'}
+                    borderColor={'white'}
                     borderRadius={'5px'}>
-                    <h3>Canary-wind.com</h3>
+                    <h3>ElMedanoWind.com</h3>
                 </Flex>
                 <Flex 
                     className='viento_actual' 
@@ -74,7 +74,7 @@ export const Header = () => {
                     </Flex>
 
                 </Flex>
-                <Flex 
+                {/* <Flex 
                     className='pronostico' 
                     margin={'2px'}
                     padding={'5px'}
@@ -91,7 +91,7 @@ export const Header = () => {
                         <h3>{pronostico}</h3>
                     </Flex>
 
-                </Flex>
+                </Flex> */}
             </Flex>
 
         </Heading>
