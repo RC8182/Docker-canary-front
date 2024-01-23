@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/react'
 // import { Olas } from '../../Modulos Tiempo/Olas'
-import { Sunrise } from '../../Modulos Tiempo/Sunrise'
-import { Sunset } from '../../Modulos Tiempo/Sunset'
-import { Temperature } from '../../Modulos Tiempo/Temperature'
+import { Sunrise } from '../../ModulosTiempo/sunrise'
+import { Sunset } from '../../ModulosTiempo/sunset'
+import { Temperature } from '../../ModulosTiempo/temperature'
 import { VientoAcordion } from '../../Acordion/VientoAcordion'
 
 export const DayCard = (props) => {

@@ -1,15 +1,15 @@
 import { Divider, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { WindContext } from '../../Context/WindProvider';
-import { Sunrise } from '../Modulos Tiempo/Sunrise';
-import { Sunset } from '../Modulos Tiempo/Sunset';
-import { Tiempo } from '../Modulos Tiempo/Tiempo';
-import { Temperature } from '../Modulos Tiempo/Temperature';
-import { Uv } from '../Modulos Tiempo/Uv';
-import { Viento } from '../Modulos Tiempo/Viento';
-import { RosaViento } from '../Modulos Tiempo/RosaViento';
-import { Compass } from '../Modulos Tiempo/Compass';
+import { Sunrise } from '../ModulosTiempo/sunrise';
+import { Sunset } from '../ModulosTiempo/sunset';
+import { Tiempo } from '../ModulosTiempo/tiempo';
+import { Uv } from '../ModulosTiempo/uv';
+import { Viento } from '../ModulosTiempo/viento';
+import { RosaViento } from '../ModulosTiempo/RosaViento';
+import { Compass } from '../ModulosTiempo/compass';
 import { toInteger } from 'lodash';
+import { Temperature } from '../ModulosTiempo/temperature';
 
 
 export const ActualWhiteCard = (props) => {

@@ -3,8 +3,8 @@ import React, { useContext } from 'react'
 import { TideContext } from '../../Context/TideProvider'
 import { TideChart } from '../Charts/TideChart'
 import { CuentaAtras } from '../CuentaAtras'
-import { Bajamar } from '../Modulos Tiempo/Bajamar'
-import { Pleamar } from '../Modulos Tiempo/Pleamar'
+import { Bajamar } from '../ModulosTiempo/bajamar'
+import { Pleamar } from '../ModulosTiempo/pleamar'
 
 export const TideWhiteCard = () => {
   const today= new Date();

@@ -1,6 +1,6 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react'
 import React from 'react'
-import { Viento } from '../Modulos Tiempo/Viento'
+import { Viento } from '../ModulosTiempo/viento'
 import { TablaViento } from './Tablas/TablaViento'
 
 export const VientoAcordion = (props) => {
